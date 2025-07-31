@@ -3,7 +3,7 @@ import { AppContext } from "../App";
 import Key from "./Key"
 
 function Keyboard() {
-  const {onEnter, onDelete, onSelectLetter } = useContext(AppContext);
+  const {onEnter, onDelete, onSelectLetter, currAttempt } = useContext(AppContext);
 
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -49,7 +49,7 @@ function Keyboard() {
       <div className = "line2">{keys2.map((key) => 
       {return < Key key={key} keyVal={key}/>;})}</div>
       <div className = "line3">
-        < Key keyVal={"ENTER"} bigKey/>
+        < Key keyVal={"ENTER"} bigKey disabled={currAttempt.letterPos !== 5}/>
         {keys3.map((key) => 
         {return < Key key={key} keyVal={key}/>;})}
         < Key keyVal={"DELETE"} bigKey/>
@@ -60,4 +60,3 @@ function Keyboard() {
 
 export default Keyboard;
 
-// CONTINUE WITH Keyboard hehe 23.10
